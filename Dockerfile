@@ -18,7 +18,7 @@ RUN go mod download && go mod verify
 COPY . .
 
 # Generate swagger documentation
-RUN go run github.com/swaggo/swag/cmd/swag init
+RUN go install github.com/swaggo/swag/cmd/swag@latest && /go/bin/swag init
 
 # Build the application
 # CGO_ENABLED=0: สำหรับ static binary
